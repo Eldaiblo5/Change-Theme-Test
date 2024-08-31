@@ -497,9 +497,9 @@ function Kavo.CreateLib(kavName, themeList)
             sectionlistoknvm.Parent = sectionFrame
             sectionlistoknvm.SortOrder = Enum.SortOrder.LayoutOrder
             sectionlistoknvm.Padding = UDim.new(0, 5)
+
             for i,v in pairs(sectionInners:GetChildren()) do
-                
-				while wait() do
+                while wait() do
                     if v:IsA("Frame") or v:IsA("TextButton") then
                         function size(pro)
                             if pro == "Size" then
@@ -1998,7 +1998,7 @@ function Kavo.CreateLib(kavName, themeList)
 
                 Sample.Name = "Sample"
                 Sample.Parent = keybindElement
-				                Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+                Sample.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
                 Sample.BackgroundTransparency = 1.000
                 Sample.Image = "http://www.roblox.com/asset/?id=4560909609"
                 Sample.ImageColor3 = themeList.SchemeColor
