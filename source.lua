@@ -17,13 +17,13 @@ function Kavo:DraggingEnabled(frame, parent)
 
     frame.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = true
+            dragging = false
             mousePos = input.Position
             framePos = parent.Position
             
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
-                    dragging = true
+                    dragging = false
                 end
             end)
         end
