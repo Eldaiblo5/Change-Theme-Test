@@ -12,12 +12,12 @@ function Kavo:DraggingEnabled(frame, parent)
     parent = parent or frame
     
     -- stolen from wally or kiriot, kek
-    local dragging = true
+    local dragging = false
     local dragInput, mousePos, framePos
 
     frame.InputBegan:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseButton1 then
-            dragging = false
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
             mousePos = input.Position
             framePos = parent.Position
             
@@ -30,7 +30,7 @@ function Kavo:DraggingEnabled(frame, parent)
     end)
 
     frame.InputChanged:Connect(function(input)
-        if input.UserInputType == Enum.UserInputType.MouseMovement then
+        if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
             dragInput = input
         end
     end)
@@ -99,11 +99,11 @@ local themeStyles = {
         ElementColor = Color3.fromRGB(52, 74, 95)
     },
     Sentinel = {
-        SchemeColor = Color3.fromRGB(230, 35, 69),
-        Background = Color3.fromRGB(32, 32, 32),
-        Header = Color3.fromRGB(24, 24, 24),
-        TextColor = Color3.fromRGB(119, 209, 138),
-        ElementColor = Color3.fromRGB(24, 24, 24)
+        SchemeColor = Color3.fromRGB(13, 192, 62),
+        Background = Color3.fromRGB(35, 40, 43),
+        Header = Color3.fromRGB(22, 30, 32),
+        TextColor = Color3.fromRGB(255, 255, 255),
+        ElementColor = Color3.fromRGB(22, 30, 32)
     },
     Synapse = {
         SchemeColor = Color3.fromRGB(46, 48, 43),
@@ -127,7 +127,9 @@ local SettingsT = {
 }
 
 local Name = "KavoConfig.JSON"
-
+if not isfile("KavoConfig.JSON") then
+   writefile(Name, "{}") 
+end
 pcall(function()
 
 if not pcall(function() readfile(Name) end) then
@@ -2629,3 +2631,17 @@ function Kavo.CreateLib(kavName, themeList)
 		        end)()
                 updateSectionFrame()
                 UpdateSize()
+                function labelFunctions:UpdateLabel(newText)
+                	if label.Text ~= "  "..newText then
+                		label.Text = "  "..newText
+                	end
+                end	
+                return labelFunctions
+            end	
+            return Elements
+        end
+        return Sections
+    end  
+    return Tabs
+end
+return Kavo
