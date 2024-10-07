@@ -243,7 +243,7 @@ function Kavo.CreateLib(kavName, themeList)
     MainHeader.Parent = Main
     MainHeader.BackgroundColor3 = themeList.Header
     Objects[MainHeader] = "BackgroundColor3"
-    MainHeader.Size = UDim2.new(0, 525, 0, 29)
+    MainHeader.Size = UDim2.new(0, 350, 0, 19) 
     headerCover.CornerRadius = UDim.new(0, 4)
     headerCover.Name = "headerCover"
     headerCover.Parent = MainHeader
@@ -306,7 +306,7 @@ function Kavo.CreateLib(kavName, themeList)
     pages.BackgroundTransparency = 1.000
     pages.BorderSizePixel = 0
     pages.Position = UDim2.new(0.299047589, 0, 0.122641519, 0)
-    pages.Size = UDim2.new(0, 360, 0, 269)
+    pages.Size = UDim2.new(0, 240, 0, 179)
 
     Pages.Name = "Pages"
     Pages.Parent = pages
@@ -318,7 +318,7 @@ function Kavo.CreateLib(kavName, themeList)
     infoContainer.BorderColor3 = Color3.fromRGB(27, 42, 53)
     infoContainer.ClipsDescendants = true
     infoContainer.Position = UDim2.new(0.299047619, 0, 0.874213815, 0)
-    infoContainer.Size = UDim2.new(0, 368, 0, 33)
+    infoContainer.Size = UDim2.new(0, 245, 0, 22)
 
     
     coroutine.wrap(function()
